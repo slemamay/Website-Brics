@@ -1,0 +1,189 @@
+/* Similaires à index.css  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f2f5; 
+}
+
+a { text-decoration: none; }
+
+/*  Header spécifique aux pages */
+.page-header {
+    background: #1e3c72;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Navigation spécifique (Flexbox) */
+.page-nav {
+    background: #2c3e50;
+    padding: 1rem;
+}
+.page-nav ul {
+    /* Flexbox pour le menu */
+    display: flex;
+    justify-content: flex-start; 
+    list-style: none;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.page-nav li {
+    margin-right: 20px;
+}
+.page-nav a {
+    color: #ecf0f1;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+.page-nav a:hover {
+    background: rgba(255,255,255,0.1);
+}
+/* Sélecteur complexe : le premier lien (retour accueil) est différent */
+.page-nav li:first-child a {
+    background-color: #d9534f;
+    font-weight: bold;
+}
+
+
+/* --- LAYOUT PRINCIPAL (FLEXBOX CRUCIAL ICI) --- */
+.content-wrapper {
+    /* C'est le conteneur parent qui active Flexbox */
+    display: flex;
+    /* Permet le passage à la ligne sur petits écrans */
+    flex-wrap: wrap; 
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+    gap: 20px; /* Espace entre les boites flex */
+}
+
+/* La partie principale (sections) */
+.main-content {
+    /* Prend 3 parts de l'espace disponible */
+    flex: 3;
+    min-width: 60%; /* S'assure qu'il ne devient pas trop petit */
+}
+
+/* La barre latérale (aside) */
+.sidebar {
+    /* Prend 1 part de l'espace disponible */
+    flex: 1;
+    min-width: 250px; /* Largeur minimale avant de passer sous le contenu */
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    height: fit-content; /* S'adapte à la hauteur de son contenu */
+}
+
+
+/* --- Styles des Sections de contenu --- */
+.section-block {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+/* Image avec effet de zoom (demandé dans les consignes) */
+.zoom-image {
+    margin: 2rem 0;
+    text-align: center;
+    overflow: hidden; /* Nécessaire pour que le zoom ne dépasse pas du cadre */
+    border-radius: 8px;
+}
+
+.zoom-image img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.5s ease; /* Animation fluide */
+}
+
+/* Le survol déclenche le zoom */
+.zoom-image img:hover {
+    transform: scale(1.1);
+}
+.zoom-image figcaption {
+    font-style: italic;
+    color: #777;
+    margin-top: 0.5rem;
+}
+
+/* Vidéo responsive */
+.video-container iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px; 
+    margin-top: 1rem;
+}
+
+
+/* Tableau des Avis */
+.avis-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px 0; 
+}
+.avis-table th {
+    padding: 15px;
+    color: white;
+    font-size: 1.1em;
+}
+.avis-table th.positive { background-color: #27ae60; }
+.avis-table th.negative { background-color: #c0392b; }
+
+.avis-table td {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    vertical-align: top;
+}
+/* Sélecteur complexe : Cible la 2ème cellule de chaque ligne du corps */
+.avis-table tbody tr td:nth-child(2) {
+    background-color: #fff5f5; 
+}
+
+
+/* --- ASIDE : Nuage de mots (Flexbox interne) --- */
+.tag-cloud {
+    /* Flexbox pour agencer les mots aléatoirement */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 1rem;
+}
+
+/* Classes pour varier la taille des polices */
+.tag-s { font-size: 0.9rem; color: #7f8c8d; }
+.tag-m { font-size: 1.2rem; color: #34495e; font-weight: 500;}
+.tag-l { font-size: 1.6rem; color: #2980b9; font-weight: bold;}
+.tag-xl { font-size: 2rem; color: #8e44ad; font-weight: 900;}
+
+
+/* Footer spécifique  */
+.page-footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    background: #34495e;
+    color: #bdc3c7;
+}
+.page-footer a { color: #3498db; }
